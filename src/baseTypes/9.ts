@@ -1,22 +1,22 @@
 /*
   Створіть новий тип даних, який підходить для цих двох об'єктів.
 */
-type DetailsType = {
-  createAt: Date
-  updateAt: Date
-}
-type Type1 = {
-  title: string
-  likes: number
-  accounts: string[]
-  status: string
-}
-type Type2 = {
-  details: DetailsType
-}
-type CombineType = Type1 | Type2
 
-const page1: CombineType = {
+
+type Type = {
+  title: string;
+  likes: number;
+  accounts: string[];
+  status: "open" | "close";
+  details?: {
+    createAt: Date;
+    updateAt: Date;
+  };
+};
+
+
+
+const page1: Type = {
   title: 'The awesome page',
   likes: 100,
   accounts: ['Max', 'Anton', 'Nikita'],
@@ -27,7 +27,7 @@ const page1: CombineType = {
   },
 }
 
-const page2: CombineType = {
+const page2: Type = {
   title: 'Python or Js',
   likes: 5,
   accounts: ['Alex'],
